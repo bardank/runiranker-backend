@@ -13,7 +13,7 @@ export interface User {
   accessToken: string;
 }
 
-export interface affiliatedBy {
+export interface AffiliatedBy {
   label: string;
   link: string;
 }
@@ -24,7 +24,7 @@ export interface Institution {
   phone: string[];
   email: string;
   website: string;
-  affiliatedBy: affiliatedBy[];
+  affiliatedBy: AffiliatedBy[];
   logo: string;
   institutionType: INSTITUTION_TYPE;
 }

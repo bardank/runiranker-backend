@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 import multer from "multer";
 import { HttpError } from "../../libs/httpError";
 import institutionService from "../../services/institution/institution";
@@ -20,8 +20,8 @@ router.post(
         type: "BAD_REQUEST",
       });
     }
-    const message = await institutionService.excelToJson(req.file.buffer);
-    // return res.status(200).json({ message });
+    const institutions = await institutionService.excelToJson(req.file.buffer);
+    res.status(200).json({ message: "Institutions imported successfully" });
   })
 );
 
