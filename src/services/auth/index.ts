@@ -13,7 +13,6 @@ const login = async (email: string, password: string): Promise<User> => {
     message: "Invalid credentials!",
   };
   const user = await userService.findOneByEmail(email);
-  console.log(user);
   if (!user) {
     throw new HttpError({
       code: 403,

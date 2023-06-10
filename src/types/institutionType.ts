@@ -6,4 +6,4 @@ export enum INSTITUTION_TYPE {
   TRAINING = "TRAINING",
 }
 
-export type Institution = `${INSTITUTION_TYPE}`;
+export type Institution_type = `${INSTITUTION_TYPE}`;

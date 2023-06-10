@@ -1,5 +1,5 @@
 import { ObjectId } from "mongoose";
-import { INSTITUTION_TYPE } from "./insitutionType";
+import { INSTITUTION_TYPE } from "./institutionType";
 import { Role, ROLES } from "./roles";
 
 export interface User {
@@ -19,12 +19,12 @@ export interface affiliatedBy {
 }
 export interface Institution {
   _id: ObjectId;
-  name : string;
-  address : string;
-  phone : string[];
-  email : string;
-  website : string;
-  affiliatedBy : affiliatedBy[];
-  logo : string;
-  institutionType : INSTITUTION_TYPE;
+  name: string;
+  address: string;
+  phone: string[];
+  email: string;
+  website: string;
+  affiliatedBy: affiliatedBy[];
+  logo: string;
+  institutionType: INSTITUTION_TYPE;
 }
