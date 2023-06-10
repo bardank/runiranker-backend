@@ -1,4 +1,7 @@
+import UserModel from "../../models/user";
 import { HttpErrorPayload } from "../../types/error";
+
+
 
 const login = async (email: string, password: string): Promise<string> => {
   const errObj: HttpErrorPayload = {
@@ -10,8 +13,18 @@ const login = async (email: string, password: string): Promise<string> => {
   return "";
 };
 
+const register = async (
+  username: string,
+  email: string,
+  password: string
+): Promise<string> => {
+  const user = await UserModel.create({});
+
+  return "";
+};
+
 const authService = {
-    login,
-}
+  login,
+};
 
 export default authService;
