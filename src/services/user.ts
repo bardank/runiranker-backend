@@ -2,12 +2,12 @@ import UserModel from "../models/user";
 import { User } from "../types/models";
 
 const create = async (
-  username: string,
+  name: string,
   email: string,
   password: string
 ): Promise<User> => {
   const user = await UserModel.create({
-    username,
+    name,
     email,
     password,
   });
