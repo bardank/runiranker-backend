@@ -1,6 +1,7 @@
 import xlsx from "xlsx";
 import { InstitutionModel } from "../../models/institution";
 import { AffiliatedBy } from "../../types/models";
+import { CollegeSearchQuery } from "../../types/searchQueryType";
 
 const excelToJson = async (file: Buffer) => {
   const workbook = xlsx.read(file);
@@ -31,8 +32,25 @@ const excelToJson = async (file: Buffer) => {
   return data;
 };
 
+const searchInstitutions = async (query: CollegeSearchQuery) => {
+  const { page, limit, slug } = query;
+  const institutions = await InstitutionModel.find({
+    name: { $regex: slug, $options: "i" },
+  })
+    .skip((page - 1) * limit)
+    .limit(limit);
+  return { page, limit, data: institutions };
+};
+
+const fetchInstitutionById = async (id: string) => {
+  const institution = await InstitutionModel.findById(id);
+  return institution;
+};
+
 const institutionService = {
   excelToJson,
+  searchInstitutions,
+  fetchInstitutionById,
 };
 
 export default institutionService;
