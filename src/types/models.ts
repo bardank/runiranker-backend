@@ -20,11 +20,17 @@ export interface AffiliatedBy {
 export interface Institution {
   _id: ObjectId;
   name: string;
+  slug: string;
   address: string;
   phone: string[];
+  ownership: string;
+  established: string;
   email: string;
+  programs: string[];
   website: string;
   affiliatedBy: AffiliatedBy[];
   logo: string;
+  about: string;
+  location: string;
   institutionType: INSTITUTION_TYPE;
 }

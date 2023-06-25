@@ -16,6 +16,15 @@ export const InstitutionSchema = new Schema<Institution>(
       required: false,
       default: INSTITUTION_TYPE.COLLEGE,
     },
+    slug: { type: String, required: false },
+    ownership: { type: String, required: false },
+    about: { type: String, required: false },
+    established: { type: String, required: false },
+    programs: { type: [String], required: false, default: [] },
+    location: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,
