@@ -2,6 +2,8 @@ import { NextFunction, Request, Response, Router } from "express";
 import { catchAsync } from "../../utils/catchAsync";
 import authService from "../../services/auth/";
 import { LoginPayload, RegisterPayload } from "../../types/auth";
+import validator from "../../middleware/validator";
+import { LoginBody } from "../../validators/auth";
 const router = Router();
 
 interface LoginRequest extends Request {
@@ -10,6 +12,7 @@ interface LoginRequest extends Request {
 
 router.post(
   "/login",
+  validator({ body: "LoginBody" }),
   catchAsync(async (req: LoginRequest, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
     const user = await authService.login(email, password);
